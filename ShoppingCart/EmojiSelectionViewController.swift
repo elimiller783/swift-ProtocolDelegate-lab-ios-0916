@@ -9,6 +9,16 @@
 import UIKit
 
 class EmojiSelectionViewController: UIViewController {
+    @IBOutlet weak var LeftLabel: UITextField!
+    @IBOutlet weak var RightLabel: UITextField!
+    
+    @IBOutlet weak var SaveButton: UIButton!
+    @IBAction func saveButton(_ sender: AnyObject) {
+        emojiDelegate?.create(("\(LeftLabel.text!)", "\(RightLabel.text!)"))
+        dismiss(animated: true, completion: nil)
+    }
+ 
+    var emojiDelegate: EmojiCreation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
